@@ -1,6 +1,6 @@
 const WIDTH = 800;
 const HEIGHT = 800;
-const BOX = 20;
+const BOX = 5;
 canvas.width = WIDTH;
 canvas.height = HEIGHT;
 const ctx = canvas.getContext("2d");
@@ -47,23 +47,24 @@ const lines = [
 ];
 
 const FPS = 60;
-const points = [{x: 0.25, y: 0.25,   z: 0.25}, {x: -0.25, y:0.25,   z: 0.25}, {x:0.25, y:-0.25,   z: 0.25}, {x:-0.25, y:-0.25,   z: 0.25},
-	{x: 0.25, y: 0.25,  z: -0.25}, {x: -0.25, y:0.25,  z: -0.25}, {x:0.25, y:-0.25,  z: -0.25}, {x:-0.25, y:-0.25,  z: -0.25}];
+const points = [{x: 0.25, y: 0.25,   z: 0.25}, {x: -0.25, y: 0.25,   z: 0.25}, {x: 0.25, y: -0.25,   z: 0.25}, {x: -0.25, y: -0.25,   z: 0.25},
+	{x: 0.25, y: 0.25,  z: -0.25}, {x: -0.25, y: 0.25,  z: -0.25}, {x: 0.25, y: -0.25,  z: -0.25}, {x: -0.25, y: -0.25,  z: -0.25}];
 
 
 function translate_z(p, dz) {
-	return p;
 	return {x: p.x, y: p.y, z: p.z + dz};
 }
 
 function rotate_xz({x, y, z}, angle) {
-    const c = Math.cos(angle);
-    const s = Math.sin(angle);
-    return {
-        x: x*c-z*s,
-        y,
-        z: x*s+z*c,
-    };
+    	const c = Math.cos(angle);
+    	const s = Math.sin(angle);
+    	const ret = {
+        	x: x*c-z*s,
+        	y,
+        	z: x*s+z*c,
+    	};
+	console.log(ret);
+	return ret;
 }
 
 function line(p1, p2) {
@@ -75,12 +76,12 @@ function line(p1, p2) {
 	ctx.stroke();
 }
 
-let dz = 4;
 let angle = 0;
-
+let time = 0;
+const dt = 1/FPS;
 function frame() {
-	const dt = 1/FPS;
-    	dz += 1*dt;
+    	time += dt;
+	let dz = 1.5 + 0.5 * Math.cos(2*time);
     	angle += Math.PI*dt;
 	clear();
 	let p = [];
@@ -91,7 +92,7 @@ function frame() {
 	console.log(p);
 
 	for(const [p1,p2] of lines) {
-		// line(p[p1],p[p2]);
+		line(p[p1],p[p2]);
 	}	
 	
 	setTimeout(frame, 1000/FPS);
