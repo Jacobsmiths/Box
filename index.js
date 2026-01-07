@@ -3,6 +3,8 @@ let WIDTH = window.innerWidth;
 let HEIGHT = window.innerHeight
 let ctx = canvas.getContext("2d");
 function resizeCanvas() {
+	WIDTH = window.innerWidth;
+	HEIGHT = window.innerHeight;
 	canvas.width = WIDTH;
 	canvas.height = HEIGHT;
 	ctx = canvas.getContext("2d");
@@ -49,7 +51,7 @@ const lines = [
 	[6,7]
 ];
 
-const FPS = 60;
+const FPS = 120;
 const points = [{x: 0.25, y: 0.25,   z: 0.25}, {x: -0.25, y: 0.25,   z: 0.25}, {x: 0.25, y: -0.25,   z: 0.25}, {x: -0.25, y: -0.25,   z: 0.25},
 	{x: 0.25, y: 0.25,  z: -0.25}, {x: -0.25, y: 0.25,  z: -0.25}, {x: 0.25, y: -0.25,  z: -0.25}, {x: -0.25, y: -0.25,  z: -0.25}];
 
