@@ -1,18 +1,21 @@
-const WIDTH = 800;
-const HEIGHT = 800;
 const BOX = 5;
-canvas.width = WIDTH;
-canvas.height = HEIGHT;
-const ctx = canvas.getContext("2d");
-
+let WIDTH = window.innerWidth;
+let HEIGHT = window.innerHeight
+let ctx = canvas.getContext("2d");
+function resizeCanvas() {
+	canvas.width = WIDTH;
+	canvas.height = HEIGHT;
+	ctx = canvas.getContext("2d");
+	clear();
+}
 function clear() {
 	ctx.fillStyle = "#ff6e00";
 	ctx.fillRect(0,0,WIDTH,HEIGHT);
 }
-
+window.addEventListener('resize', resizeCanvas);
+window.addEventListener('load', resizeCanvas);
 
 function screen(p) {
-    // -1..1 => 0..2 => 0..1 => 0..w
     return {
         x: (p.x + 1)/2*canvas.width,
         y: (1 - (p.y + 1)/2)*canvas.height,
