@@ -1,8 +1,2 @@
 # Box
-<iframe
-	src="https://jacobsmiths.github.io/Box/box.html"
-	width="100%" 
-	height="400px" 
-	title="Embedded Demo" 
-	sandbox="allow-scripts"
-></iframe>
+Ok this was just a lil expirement. You can view it here: https://jacobsmiths.github.io/Box/box.html
