@@ -2,26 +2,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-	  <link rel="stylesheet" href="index.css">
-  </head>
-  <canvas id="canvas"></canvas>
-<style>
-	html, body {
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	width: 100%;
-	height: 100%;
-	}
-
-	canvas {
-		display: block;
-		position: absolute;
-		left: 0;
-		top: 0;
-	}
-</style>
-  <script>{
+	  <style>
+		html, body {
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+		}
+	
+		canvas {
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+	<script>{
 	const BOX = 5;
 	let WIDTH = window.innerWidth;
 	let HEIGHT = window.innerHeight
@@ -131,4 +128,6 @@
 	setTimeout(frame, 1000/FPS);
   }
   </script>
+  </head>
+  <canvas id="canvas"></canvas>
 </html>
